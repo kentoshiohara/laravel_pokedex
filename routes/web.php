@@ -16,3 +16,5 @@ use App\Http\Controllers\PokemonController;
 
 # 一覧画面
 Route::get('/pokedex', [PokemonController::class, 'index']);
+# 詳細画面
+Route::get('/pokedex/{name}', [PokemonController::class, 'show'])->name('pokedex.show');

@@ -1,7 +1,7 @@
 # アプリ
 Pokemon図鑑
 
-## 環境構築
+## 環境
 - laravel
 - mamp
 - github

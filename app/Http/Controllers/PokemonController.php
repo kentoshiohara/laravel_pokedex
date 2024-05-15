@@ -26,4 +26,13 @@ class PokemonController extends Controller
 
         return view('pokedex', compact('detailedPokemons'));
     }
+
+    public function show($name)
+    {
+        $client = new Client();
+        $pokemonDetails = $client->get("https://pokeapi.co/api/v2/pokemon/{$name}");
+        $pokemon = json_decode($pokemonDetails->getBody()->getContents(), true);
+
+        return view('pokemon', ['pokemon' => $pokemon]);
+    }
 }

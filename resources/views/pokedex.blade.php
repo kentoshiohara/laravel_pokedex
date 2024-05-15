@@ -26,7 +26,7 @@
         @foreach ($detailedPokemons as $pokemon)
         <div class="card">
             <h2>No. {{$pokemon['number']}} {{ $pokemon['name'] }}</h2>
-            <a href="">
+            <a href="{{ route('pokedex.show', ['name' => $pokemon['name']]) }}">
                 <img src="{{ $pokemon['image'] }}" alt="{{ $pokemon['name'] }}">
             </a>
         </div>
