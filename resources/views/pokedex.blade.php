@@ -5,32 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pokedex</title>
-    <style>
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 10px;
-            margin: 10px;
-            text-align: center;
-            width: 150px;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/pokedex.css')}}">
 </head>
 <body>
-    <h1>Pokedex</h1>
-    <div class="container">
-        @foreach ($detailedPokemons as $pokemon)
-        <div class="card">
-            <h2>No. {{$pokemon['number']}} {{ $pokemon['name'] }}</h2>
-            <a href="{{ route('pokedex.show', ['name' => $pokemon['name']]) }}">
-                <img src="{{ $pokemon['image'] }}" alt="{{ $pokemon['name'] }}">
-            </a>
+    <main class="pokedex-main">
+        <h1 class="pokedex-title">Pokedex</h1>
+        <div class="container">
+            @foreach ($detailedPokemons as $pokemon)
+            <div class="card">
+                <div class="pokedex-card">
+                    <a href="{{ route('pokedex.show', ['name' => $pokemon['name']]) }}">
+                        <img src="{{ $pokemon['image'] }}" alt="{{ $pokemon['name'] }}">
+                    </a>
+                </div>
+                <p>#{{$pokemon['number']}} {{ $pokemon['name'] }}</p>
+            </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
+    </main>
 </body>
 </html>
